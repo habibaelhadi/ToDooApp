@@ -6,8 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ManageTasks.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ManageTasks,UISearchBarDelegate>
 
 
 @end

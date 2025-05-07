@@ -14,6 +14,13 @@
 		A06A68212DCA4A9D006150E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06A68202DCA4A9D006150E3 /* Assets.xcassets */; };
 		A06A68242DCA4A9D006150E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A68222DCA4A9D006150E3 /* LaunchScreen.storyboard */; };
 		A06A68272DCA4A9D006150E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A68262DCA4A9D006150E3 /* main.m */; };
+		A06A682F2DCA6068006150E3 /* InProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A682E2DCA6068006150E3 /* InProgressViewController.m */; };
+		A06A68322DCA6087006150E3 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A68312DCA6087006150E3 /* DoneViewController.m */; };
+		A06A68352DCA609F006150E3 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A68342DCA609F006150E3 /* AddTaskViewController.m */; };
+		A06A68382DCA7131006150E3 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A68372DCA7131006150E3 /* DetailsViewController.m */; };
+		A06A683B2DCA7201006150E3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A683A2DCA7201006150E3 /* CustomTableViewCell.m */; };
+		A06A68402DCA738B006150E3 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = A06A683F2DCA738B006150E3 /* Task.m */; };
+		A09EE6F32DCB2D9F006367BF /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09EE6F22DCB2D9F006367BF /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,21 @@
 		A06A68232DCA4A9D006150E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A06A68252DCA4A9D006150E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A06A68262DCA4A9D006150E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A06A682D2DCA6068006150E3 /* InProgressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InProgressViewController.h; sourceTree = "<group>"; };
+		A06A682E2DCA6068006150E3 /* InProgressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InProgressViewController.m; sourceTree = "<group>"; };
+		A06A68302DCA6087006150E3 /* DoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoneViewController.h; sourceTree = "<group>"; };
+		A06A68312DCA6087006150E3 /* DoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoneViewController.m; sourceTree = "<group>"; };
+		A06A68332DCA609F006150E3 /* AddTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		A06A68342DCA609F006150E3 /* AddTaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		A06A68362DCA7131006150E3 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		A06A68372DCA7131006150E3 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		A06A68392DCA7201006150E3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		A06A683A2DCA7201006150E3 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		A06A683E2DCA7363006150E3 /* Task.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		A06A683F2DCA738B006150E3 /* Task.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		A09EE6F12DCB2D9F006367BF /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		A09EE6F22DCB2D9F006367BF /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		A09EE6F42DCB3B1A006367BF /* ManageTasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManageTasks.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +94,21 @@
 				A06A68222DCA4A9D006150E3 /* LaunchScreen.storyboard */,
 				A06A68252DCA4A9D006150E3 /* Info.plist */,
 				A06A68262DCA4A9D006150E3 /* main.m */,
+				A06A682D2DCA6068006150E3 /* InProgressViewController.h */,
+				A06A682E2DCA6068006150E3 /* InProgressViewController.m */,
+				A06A68302DCA6087006150E3 /* DoneViewController.h */,
+				A06A68312DCA6087006150E3 /* DoneViewController.m */,
+				A06A68332DCA609F006150E3 /* AddTaskViewController.h */,
+				A06A68342DCA609F006150E3 /* AddTaskViewController.m */,
+				A06A68362DCA7131006150E3 /* DetailsViewController.h */,
+				A06A68372DCA7131006150E3 /* DetailsViewController.m */,
+				A06A68392DCA7201006150E3 /* CustomTableViewCell.h */,
+				A06A683A2DCA7201006150E3 /* CustomTableViewCell.m */,
+				A06A683E2DCA7363006150E3 /* Task.h */,
+				A06A683F2DCA738B006150E3 /* Task.m */,
+				A09EE6F12DCB2D9F006367BF /* EditViewController.h */,
+				A09EE6F22DCB2D9F006367BF /* EditViewController.m */,
+				A09EE6F42DCB3B1A006367BF /* ManageTasks.h */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -146,10 +183,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A06A68402DCA738B006150E3 /* Task.m in Sources */,
+				A06A68352DCA609F006150E3 /* AddTaskViewController.m in Sources */,
+				A06A68322DCA6087006150E3 /* DoneViewController.m in Sources */,
 				A06A681C2DCA4A98006150E3 /* ViewController.m in Sources */,
+				A06A682F2DCA6068006150E3 /* InProgressViewController.m in Sources */,
 				A06A68162DCA4A98006150E3 /* AppDelegate.m in Sources */,
+				A06A683B2DCA7201006150E3 /* CustomTableViewCell.m in Sources */,
 				A06A68272DCA4A9D006150E3 /* main.m in Sources */,
+				A09EE6F32DCB2D9F006367BF /* EditViewController.m in Sources */,
 				A06A68192DCA4A98006150E3 /* SceneDelegate.m in Sources */,
+				A06A68382DCA7131006150E3 /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
