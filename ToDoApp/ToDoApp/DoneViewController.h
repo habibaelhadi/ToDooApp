@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DoneViewController : ViewController
+@interface DoneViewController : ViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end
 

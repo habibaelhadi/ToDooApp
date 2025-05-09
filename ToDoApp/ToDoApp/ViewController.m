@@ -73,6 +73,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self reloadTasks];
+}
+
 - (void)reloadTasks {
     NSError *error = nil;
         NSSet *allowedClasses = [NSSet setWithObjects:[NSArray class], [Task class], nil];
@@ -381,52 +385,100 @@
         switch (_filter.selectedSegmentIndex) {
             case 0:
             {
-                [_low removeObjectAtIndex:indexPath.row];
-                NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:_low requiringSecureCoding:YES error:&error];
-                [_defaults setObject:archLow forKey:@"lowToDo"];
-                [self.table reloadData];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Confirm delete" preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSError *error = nil;
+                    [self->_low removeObjectAtIndex:indexPath.row];
+                    NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:self->_low requiringSecureCoding:YES error:&error];
+                    [self->_defaults setObject:archLow forKey:@"lowInToDo"];
+                    [self.table reloadData];
+                }];
+                UIAlertAction *cancel =[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                [alert addAction:action];
+                [alert addAction:cancel];
+                [self presentViewController:alert animated:YES completion:nil];
                 break;
             }
             case 1:
             {
-                [_medium removeObjectAtIndex:indexPath.row];
-                NSData *archMed = [NSKeyedArchiver archivedDataWithRootObject:_medium requiringSecureCoding:YES error:&error];
-                [_defaults setObject:archMed forKey:@"medToDo"];
-                [self.table reloadData];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Confirm delete" preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSError *error = nil;
+                    [self->_medium removeObjectAtIndex:indexPath.row];
+                    NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:self->_medium requiringSecureCoding:YES error:&error];
+                    [self->_defaults setObject:archLow forKey:@"medInToDo"];
+                    [self.table reloadData];
+                }];
+                UIAlertAction *cancel =[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                [alert addAction:action];
+                [alert addAction:cancel];
+                [self presentViewController:alert animated:YES completion:nil];
                 break;
             }
             case 2:
             {
-                [_high removeObjectAtIndex:indexPath.row];
-                NSData *archHigh = [NSKeyedArchiver archivedDataWithRootObject:_high requiringSecureCoding:YES error:&error];
-                [_defaults setObject:archHigh forKey:@"highToDo"];
-                [self.table reloadData];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Confirm delete" preferredStyle:UIAlertControllerStyleActionSheet];
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    NSError *error = nil;
+                    [self->_high removeObjectAtIndex:indexPath.row];
+                    NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:self->_high requiringSecureCoding:YES error:&error];
+                    [self->_defaults setObject:archLow forKey:@"highInToDo"];
+                    [self.table reloadData];
+                }];
+                UIAlertAction *cancel =[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                [alert addAction:action];
+                [alert addAction:cancel];
+                [self presentViewController:alert animated:YES completion:nil];
                 break;
             }
             default:
                 switch (indexPath.section) {
                     case 0:
                     {
-                        [_low removeObjectAtIndex:indexPath.row];
-                        NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:_low requiringSecureCoding:YES error:&error];
-                        [_defaults setObject:archLow forKey:@"lowToDo"];
-                        [self.table reloadData];
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Confirm delete" preferredStyle:UIAlertControllerStyleActionSheet];
+                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            NSError *error = nil;
+                            [self->_low removeObjectAtIndex:indexPath.row];
+                            NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:self->_low requiringSecureCoding:YES error:&error];
+                            [self->_defaults setObject:archLow forKey:@"lowInToDo"];
+                            [self.table reloadData];
+                        }];
+                        UIAlertAction *cancel =[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                        [alert addAction:action];
+                        [alert addAction:cancel];
+                        [self presentViewController:alert animated:YES completion:nil];
                         break;
                     }
                     case 1:
                     {
-                        [_medium removeObjectAtIndex:indexPath.row];
-                        NSData *archMed = [NSKeyedArchiver archivedDataWithRootObject:_medium requiringSecureCoding:YES error:&error];
-                        [_defaults setObject:archMed forKey:@"medToDo"];
-                        [self.table reloadData];
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Confirm delete" preferredStyle:UIAlertControllerStyleActionSheet];
+                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            NSError *error = nil;
+                            [self->_medium removeObjectAtIndex:indexPath.row];
+                            NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:self->_medium requiringSecureCoding:YES error:&error];
+                            [self->_defaults setObject:archLow forKey:@"medInToDo"];
+                            [self.table reloadData];
+                        }];
+                        UIAlertAction *cancel =[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                        [alert addAction:action];
+                        [alert addAction:cancel];
+                        [self presentViewController:alert animated:YES completion:nil];
                         break;
                     }
                     default:
                     {
-                        [_high removeObjectAtIndex:indexPath.row];
-                        NSData *archHigh = [NSKeyedArchiver archivedDataWithRootObject:_high requiringSecureCoding:YES error:&error];
-                        [_defaults setObject:archHigh forKey:@"highToDo"];
-                        [self.table reloadData];
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Confirm delete" preferredStyle:UIAlertControllerStyleActionSheet];
+                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            NSError *error = nil;
+                            [self->_high removeObjectAtIndex:indexPath.row];
+                            NSData *archLow = [NSKeyedArchiver archivedDataWithRootObject:self->_high requiringSecureCoding:YES error:&error];
+                            [self->_defaults setObject:archLow forKey:@"highInToDo"];
+                            [self.table reloadData];
+                        }];
+                        UIAlertAction *cancel =[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+                        [alert addAction:action];
+                        [alert addAction:cancel];
+                        [self presentViewController:alert animated:YES completion:nil];
                         break;
                     }
                 }

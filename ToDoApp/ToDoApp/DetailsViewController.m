@@ -50,16 +50,21 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)editTask:(id)sender {
-    EditViewController *edit = [self.storyboard instantiateViewControllerWithIdentifier:@"edit"];
-    edit.task = self.task;
-    edit.ref = self;
-    [self presentViewController:edit animated:YES completion:nil];
+    if(_task.status == 2){
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Task is already done" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }else{
+        EditViewController *edit = [self.storyboard instantiateViewControllerWithIdentifier:@"edit"];
+        edit.task = self.task;
+        edit.ref = self;
+        [self presentViewController:edit animated:YES completion:nil];
+    }
 }
 
 - (void)editTask:(Task *)task withPriority:(int)priority andStatus:(int)status {
-    self.task = task;
-    [self updateUI:task];
-
+    
     NSError *error = nil;
     NSSet *allowedClasses = [NSSet setWithObjects:[NSArray class], [Task class], nil];
 
@@ -68,7 +73,11 @@
 
     NSString *oldKey = [NSString stringWithFormat:@"%@%@", priorityKeys[self.task.priority], statusKeys[self.task.status]];
     NSString *newKey = [NSString stringWithFormat:@"%@%@", priorityKeys[priority], statusKeys[status]];
+    
+    self.task = task;
+    [self updateUI:task];
 
+    
     // Load old array and remove task
     NSMutableArray *oldArray = [NSMutableArray new];
     NSData *savedOld = [_defaults objectForKey:oldKey];
@@ -105,7 +114,11 @@
     }
 
     // Notify main view to reload
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TaskUpdated" object:nil];
+    if(task.priority == 0){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TaskUpdated" object:nil];
+    }else if(task.priority == 1){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TaskUpdatedInProg" object:nil];
+    }
 }
 
 
@@ -134,6 +147,7 @@
     _taskPriority.selectedSegmentIndex = t.priority;
     _taskDate.text = t.date;
     _taskStatus.selectedSegmentIndex = t.status;
+    _task.taskId = t.taskId;
 }
 
 /*

@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.taskDate.minimumDate = [NSDate date];
     _name.text = _task.name;
     _taskDesc.text = _task.desc;
     _taskPriority.selectedSegmentIndex = _task.priority;
@@ -43,14 +44,16 @@
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
     }else{
-        _task.name = _name.text;
+        Task *edittedTask = [Task new];
+        edittedTask.name = _name.text;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-        _task.date = [formatter stringFromDate: _taskDate.date];
-        _task.desc = _taskDesc.text;
-        _task.status = (int)_taskState.selectedSegmentIndex;
-        _task.priority = (int)_taskPriority.selectedSegmentIndex;
-        [_ref editTask:_task withPriority:_task.priority andStatus:_task.status];
+        edittedTask.date = [formatter stringFromDate: _taskDate.date];
+        edittedTask.desc = _taskDesc.text;
+        edittedTask.status = (int)_taskState.selectedSegmentIndex;
+        edittedTask.priority = (int)_taskPriority.selectedSegmentIndex;
+        edittedTask.taskId = _task.taskId;
+        [_ref editTask:edittedTask withPriority:edittedTask.priority andStatus:edittedTask.status];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
