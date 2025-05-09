@@ -28,7 +28,17 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     _taskDate.date = [formatter dateFromString:_task.date];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+       [self.view addGestureRecognizer:panGesture];
     // Do any additional setup after loading the view.
+}
+
+- (void)handlePanGesture:(UIPanGestureRecognizer *)gesture {
+    CGPoint translation = [gesture translationInView:self.view];
+    
+    if (translation.y > 100 && gesture.state == UIGestureRecognizerStateEnded) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (IBAction)saveChanges:(id)sender {

@@ -47,8 +47,19 @@
     _taskDate.text = _task.date;
     _taskStatus.enabled = NO;
     _taskStatus.selectedSegmentIndex = _task.status;
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+       [self.view addGestureRecognizer:panGesture];
     // Do any additional setup after loading the view.
 }
+
+- (void)handlePanGesture:(UIPanGestureRecognizer *)gesture {
+    CGPoint translation = [gesture translationInView:self.view];
+    
+    if (translation.y > 100 && gesture.state == UIGestureRecognizerStateEnded) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (IBAction)editTask:(id)sender {
     if(_task.status == 2){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Task is already done" preferredStyle:UIAlertControllerStyleActionSheet];

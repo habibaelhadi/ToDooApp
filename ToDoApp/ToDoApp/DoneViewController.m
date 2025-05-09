@@ -143,23 +143,23 @@
         switch (section) {
             case 0:
                 label.text = [NSString stringWithFormat:@"Low"];
-                label.textColor = [UIColor systemBlueColor];
+                label.textColor = [UIColor systemPurpleColor];
                 label.font = [UIFont boldSystemFontOfSize:18];
                 break;
             case 1:
                 label.text = [NSString stringWithFormat:@"Medium"];
-                label.textColor = [UIColor systemBlueColor];
+                label.textColor = [UIColor systemPurpleColor];
                 label.font = [UIFont boldSystemFontOfSize:18];
                 break;
             default:
                 label.text = [NSString stringWithFormat:@"Hard"];
-                label.textColor = [UIColor systemBlueColor];
+                label.textColor = [UIColor systemPurpleColor];
                 label.font = [UIFont boldSystemFontOfSize:18];
                 break;
         }
     }else{
         label.text = [NSString stringWithFormat:@"All Tasks"];
-        label.textColor = [UIColor systemBlueColor];
+        label.textColor = [UIColor systemPurpleColor];
         label.font = [UIFont boldSystemFontOfSize:18];
     }
     [headerView addSubview:label];
@@ -287,6 +287,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailsViewController *details = [self.storyboard instantiateViewControllerWithIdentifier:@"details"];
+    details.modalPresentationStyle = UIModalPresentationFullScreen;
     if(_isSorted){
         switch (indexPath.section) {
             case 0:

@@ -20,8 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.date.minimumDate = [NSDate date];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+       [self.view addGestureRecognizer:panGesture];
     // Do any additional setup after loading the view.
 }
+
+- (void)handlePanGesture:(UIPanGestureRecognizer *)gesture {
+    CGPoint translation = [gesture translationInView:self.view];
+    
+    if (translation.y > 100 && gesture.state == UIGestureRecognizerStateEnded) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (IBAction)saveTask:(id)sender {
     NSString *trimmedName = [self.name.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedDesc= [self.desc.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

@@ -99,6 +99,7 @@
 - (IBAction)addTask:(id)sender {
     AddTaskViewController *addTask = [self.storyboard instantiateViewControllerWithIdentifier:@"addTask"];
     addTask.ref = self;
+    addTask.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:addTask animated:YES completion:nil];
 }
 
@@ -298,6 +299,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailsViewController *details = [self.storyboard instantiateViewControllerWithIdentifier:@"details"];
+    details.modalPresentationStyle = UIModalPresentationFullScreen;
     switch (_filter.selectedSegmentIndex) {
         case 0:
             details.task = _low[indexPath.row];
@@ -338,32 +340,32 @@
     switch (_filter.selectedSegmentIndex) {
         case 0:
             label.text = [NSString stringWithFormat:@"Low"];
-            label.textColor = [UIColor systemBlueColor];
+            label.textColor = [UIColor systemPurpleColor];
             label.font = [UIFont boldSystemFontOfSize:18];
             break;
         case 1:
             label.text = [NSString stringWithFormat:@"Medium"];
-            label.textColor = [UIColor systemBlueColor];
+            label.textColor = [UIColor systemPurpleColor];
             label.font = [UIFont boldSystemFontOfSize:18];
             break;
         case 2:
             label.text = [NSString stringWithFormat:@"Hard"];
-            label.textColor = [UIColor systemBlueColor];
+            label.textColor = [UIColor systemPurpleColor];
             label.font = [UIFont boldSystemFontOfSize:18];
             break;
         default:
             if(section == 0){
                 label.text = [NSString stringWithFormat:@"Low"];
-                label.textColor = [UIColor systemBlueColor];
+                label.textColor = [UIColor systemPurpleColor];
                 label.font = [UIFont boldSystemFontOfSize:18];
                 
             }else if (section == 1){
                 label.text = [NSString stringWithFormat:@"Medium"];
-                label.textColor = [UIColor systemBlueColor];
+                label.textColor = [UIColor systemPurpleColor];
                 label.font = [UIFont boldSystemFontOfSize:18];
             }else{
                 label.text = [NSString stringWithFormat:@"Hard"];
-                label.textColor = [UIColor systemBlueColor];
+                label.textColor = [UIColor systemPurpleColor];
                 label.font = [UIFont boldSystemFontOfSize:18];
             }
             break;
