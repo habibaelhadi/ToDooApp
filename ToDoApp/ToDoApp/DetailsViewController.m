@@ -70,6 +70,7 @@
         EditViewController *edit = [self.storyboard instantiateViewControllerWithIdentifier:@"edit"];
         edit.task = self.task;
         edit.ref = self;
+        edit.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:edit animated:YES completion:nil];
     }
 }
